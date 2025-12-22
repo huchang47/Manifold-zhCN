@@ -1,0 +1,21 @@
+## Interface: 110207, 120000, 120001
+## Version: Alpha 3
+## Title: Manifold
+## Notes: A collection of quality-of-life enhancements.
+## Author: AdaptiveX
+## IconTexture: Interface\AddOns\Manifold\Art\Icon\IconAlt.png
+## SavedVariables: ManifoldDB_Global, ManifoldDB_Global_Persistent
+## SavedVariablesPerCharacter: ManifoldDB_Local, ManifoldDB_Local_Persistent
+## AddonCompartmentFunc: ManifoldAPI_OpenSettingUI
+
+
+wpm_modules\packages.xml
+
+Preload.lua
+Locales\Locales.xml
+
+Code\LocalUtil.lua
+Code\Setting\Setting.xml
+Code\Modules\Modules.xml
+
+API.lua
