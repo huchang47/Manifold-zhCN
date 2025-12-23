@@ -1,6 +1,7 @@
 ## Interface: 110207, 120000, 120001
 ## Version: Alpha 3
 ## Title: Manifold
+## Title-zhCN: Manifold-万象
 ## Notes: A collection of quality-of-life enhancements.
 ## Author: AdaptiveX
 ## IconTexture: Interface\AddOns\Manifold\Art\Icon\IconAlt.png
