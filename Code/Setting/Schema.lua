@@ -92,11 +92,6 @@ local RESET_SETTING_PROMPT_INFO = {
 -- Schema
 ----------------------------------------------------------------------------------------------------
 
-local function AlwaysTrue() return true end
-local function AlwaysFalse() return false end
-local function CalculateDistance(yds) return function() return LocalUtil:CalculateDistance(yds) end end
-local function FormatDistance(value) return LocalUtil:FormatDistance(value) end
-local function FormatPercentage(value) return string.format("%0.0f", value * 100) .. "%" end
 local function GetIcon(name) return Path.Root .. "\\Art\\Setting\\Icon\\" .. name .. ".png" end
 local function GetModulePreviewImage(name) return Path.Root .. "\\Art\\ModulePreview\\" .. name .. ".png" end
 
@@ -126,16 +121,15 @@ Setting_Schema.SCHEMA = {
         }
     },
     {
-        widgetName = L["Config - Modules"],
+        widgetName = L["Modules - Housing"],
         widgetType = Setting_Enum.WidgetType.Tab,
         children   = {
             {
-                widgetName       = L["Config - Modules"],
+                widgetName       = L["Modules - Housing"],
                 widgetType       = Setting_Enum.WidgetType.Title,
-                widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Config - Modules"], subtext = L["Config - Modules - WIP"] }
+                widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Modules - Housing"], subtext = L["Config - Modules - WIP"] }
             },
             {
-                widgetName = L["Modules - Housing"],
                 widgetType = Setting_Enum.WidgetType.Container,
                 children   = {
                     {
@@ -155,11 +149,33 @@ Setting_Schema.SCHEMA = {
                         widgetDescription = Setting_Define.Descriptor{ imageType = Setting_Enum.ImageType.Large, imagePath = GetModulePreviewImage("PlacedDecorList"), description = L["Modules - Housing - PlacedDecorList - Description"] },
                         widgetType        = Setting_Enum.WidgetType.CheckButton,
                         key               = "PlacedDecorList"
+                    },
+                    {
+                        widgetName        = L["Modules - Housing - DecorTooltip"],
+                        widgetDescription = Setting_Define.Descriptor{ imageType = Setting_Enum.ImageType.Large, imagePath = GetModulePreviewImage("DecorTooltip"), description = L["Modules - Housing - DecorTooltip - Description"] },
+                        widgetType        = Setting_Enum.WidgetType.CheckButton,
+                        key               = "DecorTooltip"
+                    },
+                    {
+                        widgetName        = L["Modules - Housing - PreciseMovement"],
+                        widgetDescription = Setting_Define.Descriptor{ imageType = Setting_Enum.ImageType.Large, imagePath = GetModulePreviewImage("PreciseMovement"), description = L["Modules - Housing - PreciseMovement - Description"] },
+                        widgetType        = Setting_Enum.WidgetType.Text,
+                        key               = "PreciseMovement"
                     }
                 }
+            }
+        }
+    },
+    {
+        widgetName = L["Modules - Tooltip"],
+        widgetType = Setting_Enum.WidgetType.Tab,
+        children   = {
+            {
+                widgetName       = L["Modules - Tooltip"],
+                widgetType       = Setting_Enum.WidgetType.Title,
+                widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Modules - Tooltip"], subtext = L["Config - Modules - WIP"] }
             },
             {
-                widgetName = L["Modules - Tooltip"],
                 widgetType = Setting_Enum.WidgetType.Container,
                 children   = {
                     {
@@ -175,9 +191,19 @@ Setting_Schema.SCHEMA = {
                         key               = "ExperienceBarTooltip"
                     }
                 }
+            }
+        }
+    },
+    {
+        widgetName = L["Modules - Loot"],
+        widgetType = Setting_Enum.WidgetType.Tab,
+        children   = {
+            {
+                widgetName       = L["Modules - Loot"],
+                widgetType       = Setting_Enum.WidgetType.Title,
+                widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Modules - Loot"], subtext = L["Config - Modules - WIP"] }
             },
             {
-                widgetName = L["Modules - Loot"],
                 widgetType = Setting_Enum.WidgetType.Container,
                 children   = {
                     {
@@ -199,6 +225,19 @@ Setting_Schema.SCHEMA = {
                 widgetName       = L["Config - About"],
                 widgetType       = Setting_Enum.WidgetType.Title,
                 widgetTitle_info = Setting_Define.TitleInfo{ imagePath = env.ICON_ALT, text = env.NAME, subtext = env.VERSION_STRING }
+            },
+            {
+                widgetName        = L["Config - About - Contributors"],
+                widgetType        = Setting_Enum.WidgetType.Container,
+                widgetTransparent = true,
+                children          = {
+                    {
+                        widgetName        = L["Contributors - huchang47"],
+                        widgetType        = Setting_Enum.WidgetType.Text,
+                        widgetDescription = Setting_Define.Descriptor{ description = L["Contributors - huchang47 - Description"] },
+                        widgetTransparent = true
+                    }
+                }
             },
             {
                 widgetName        = L["Config - About - Developer"],

@@ -1,0 +1,27 @@
+<Bindings>
+    <Binding
+        name="MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_X"
+        category="BINDING_HEADER_MANIFOLD_HOUSING"
+        preface="MANIFOLD_HOUSING_EXPERTDECOR_BINDINGS">
+    </Binding>
+
+    <Binding
+        name="MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Y"
+        category="BINDING_HEADER_MANIFOLD_HOUSING">
+    </Binding>
+
+    <Binding
+        name="MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Z"
+        category="BINDING_HEADER_MANIFOLD_HOUSING">
+    </Binding>
+    
+    <Binding
+        name="MANIFOLD_HOUSING_EXPERTDECORPRECISE_ROTATE"
+        category="BINDING_HEADER_MANIFOLD_HOUSING">
+    </Binding>
+
+    <Binding
+        name="MANIFOLD_HOUSING_EXPERTDECORPRECISE_SCALE"
+        category="BINDING_HEADER_MANIFOLD_HOUSING">
+    </Binding>
+</Bindings>

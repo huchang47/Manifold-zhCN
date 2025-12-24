@@ -8,6 +8,18 @@ local env = select(2, ...)
 local L = env.L
 
 
+-- Keybinds
+BINDING_HEADER_MANIFOLD = "Manifold"
+
+BINDING_HEADER_MANIFOLD_HOUSING = "Housing (Manifold)"
+PREFACE_MANIFOLD_HOUSING_EXPERTDECOR_BINDINGS = "Advanced Mode bindings for incrementally manipulating Decor with the mouse wheel."
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_X = "Precise Move (X)"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Y = "Precise Move (Y)"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Z = "Precise Move (Z)"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_ROTATE = "Precise Rotate"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_SCALE = "Precise Scale"
+
+
 -- Config
 L["Config - General"] = "General"
 L["Config - General - Title"] = "General"
@@ -36,6 +48,17 @@ L["Modules - Housing - HouseChest"] = "Persistent House Chest"
 L["Modules - Housing - HouseChest - Description"] = "Keeps the House Chest panel visible across all House Editor modes."
 L["Modules - Housing - PlacedDecorList"] = "Placed Decor List"
 L["Modules - Housing - PlacedDecorList - Description"] = "Enables resizing for the Placed Decor List and displays placement cost for each decor."
+L["Modules - Housing - DecorTooltip"] = "Highlighted Decor Tooltip"
+L["Modules - Housing - DecorTooltip - Description"] = "Displays a tooltip with name and placement cost when hovering over a decor."
+L["Modules - Housing - DecorTooltip - LeftClick"] = "Left Click to Select"
+L["Modules - Housing - PreciseMovement"] = "(Advanced Mode) Precise Movement"
+L["Modules - Housing - PreciseMovement - Description"] = "Allows precise movement, rotation and scaling of decor by holding the corresponding keybind and scrolling with the mouse wheel."
+L["Modules - Housing - PreciseMovement - MouseWheel"] = "Mouse Wheel"
+L["Modules - Housing - PreciseMovement - PreciseMoveX"] = "Precise Move (X)"
+L["Modules - Housing - PreciseMovement - PreciseMoveY"] = "Precise Move (Y)"
+L["Modules - Housing - PreciseMovement - PreciseMoveZ"] = "Precise Move (Z)"
+L["Modules - Housing - PreciseMovement - PreciseRotate"] = "Precise Rotate"
+L["Modules - Housing - PreciseMovement - PreciseScale"] = "Precise Scale"
 
 L["Modules - Tooltip"] = "Tooltip"
 L["Modules - Tooltip - QuestDetailTooltip"] = "Quest Detail Tooltip"
@@ -50,3 +73,7 @@ L["Modules - Loot - LootAlertPopup - Equip"] = "Equip"
 L["Modules - Loot - LootAlertPopup - Equipping"] = "Equipping..."
 L["Modules - Loot - LootAlertPopup - Equipped"] = "Equipped"
 L["Modules - Loot - LootAlertPopup - Combat"] = "In Combat"
+
+-- Contributors
+L["Contributors - huchang47"] = "huchang47"
+L["Contributors - huchang47 - Description"] = "Translator — Chinese (Simplified)"

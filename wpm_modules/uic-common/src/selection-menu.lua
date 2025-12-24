@@ -36,7 +36,7 @@ local ROW_HEIGHT                       = 28
 local TEXT_SIZE                        = UIKit.Define.Percentage{ value = 100, operator = "-", delta = 12.5 }
 local TEXT_COLOR                       = UIKit.Define.Color_RGBA{ r = 255, g = 255, b = 255, a = 0.75 }
 local TEXT_COLOR_HIGHLIGHTED           = UIKit.Define.Color_RGBA{ r = 255, g = 255, b = 255, a = 1 }
-local TEXT_COLOR_SELECTED              = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.NormalText.r * 255, g = GenericEnum.ColorRGB.NormalText.g * 255, b = GenericEnum.ColorRGB.NormalText.b * 255, a = 1 }
+local TEXT_COLOR_SELECTED              = GenericEnum.UIColorRGB.NormalText
 local TEXT_Y_PUSHED                    = -1
 local TEXT_Y                           = 0
 

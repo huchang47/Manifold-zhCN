@@ -23,7 +23,7 @@ local PATH                                                                      
 local TEXTURE_NIL                                                                                                                                  = UIKit.Define.Texture{ path = nil }
 local FILL                                                                                                                                         = UIKit.Define.Fill{}
 local P_FILL                                                                                                                                       = UIKit.Define.Percentage{ value = 100 }
-local TEXT_COLOR_NORMAL                                                                                                                            = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.NormalText.r * 255, g = GenericEnum.ColorRGB.NormalText.g * 255, b = GenericEnum.ColorRGB.NormalText.b * 255, a = 1 }
+local TEXT_COLOR_NORMAL                                                                                                                            = GenericEnum.UIColorRGB.NormalText
 
 
 -- Tab

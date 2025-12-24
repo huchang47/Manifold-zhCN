@@ -27,8 +27,8 @@ local function OnLoad()
     local FIT                    = UIKit.Define.Fit{}
     local ICON_BACKGROUND_NORMAL = ATLAS{ left = 0 / 256, right = 32 / 256, top = 0 / 256, bottom = 32 / 256 }
     local COLOR_NORMAL           = UIKit.Define.Color_HEX{ hex = "ff7B7B7B" }
-    local COLOR_HIGHLIGHTED      = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.NormalText.r * 255, g = GenericEnum.ColorRGB.NormalText.g * 255, b = GenericEnum.ColorRGB.NormalText.b * 255, a = 1 }
-
+    local COLOR_HIGHLIGHTED      = GenericEnum.ColorRGB255.NormalText
+    
 
     local ListInfoMixin = {}
 
@@ -93,7 +93,7 @@ local function OnLoad()
 
         if not elementData or not elementData.decorGUID then return end
         local info = C_HousingDecor.GetDecorInstanceInfoForGUID(elementData.decorGUID)
-        local catalogInfo = C_HousingCatalog.GetCatalogEntryInfoByRecordID(1, info.decorID, true)
+        local catalogInfo = C_HousingCatalog.GetCatalogEntryInfoByRecordID(Enum.HousingCatalogEntryType.Decor, info.decorID, true)
         local placementCost = catalogInfo.placementCost
 
         SetupListFrame(self)

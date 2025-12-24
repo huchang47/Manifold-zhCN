@@ -65,3 +65,32 @@ function WoWClient_Keybind.BlockKeyEvent()
     DisableKeyPropagation()
     KeyPropagationTimer:Start(0)
 end
+
+local function HandleModifierKey(key, bindingKey)
+    if not bindingKey then return false end
+    local requiresAlt   = bindingKey:find("ALT%-") ~= nil
+    local requiresCtrl  = bindingKey:find("CTRL%-") ~= nil
+    local requiresShift = bindingKey:find("SHIFT%-") ~= nil
+    local requiresMeta  = bindingKey:find("META%-") ~= nil
+
+    if requiresAlt and not IsAltKeyDown() then return false end
+    if requiresCtrl and not IsControlKeyDown() then return false end
+    if requiresShift and not IsShiftKeyDown() then return false end
+    if requiresMeta and not IsMetaKeyDown() then return false end
+
+    if key == bindingKey then return true end
+
+    local baseKey = bindingKey:gsub("ALT%-", ""):gsub("CTRL%-", ""):gsub("SHIFT%-", ""):gsub("META%-", "")
+    return key == baseKey
+end
+
+function WoWClient_Keybind.IsKeyBinding(key, binding)
+    if not binding then return false end
+    local bindingKey1, bindingKey2 = GetBindingKey(binding)
+    return HandleModifierKey(key, bindingKey1) or HandleModifierKey(key, bindingKey2)
+end
+
+function WoWClient_Keybind.IsKeyBindingSet(binding)
+    local bindingKey1, bindingKey2 = GetBindingKey(binding)
+    return (bindingKey1 ~= nil or bindingKey2 ~= nil)
+end

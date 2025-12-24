@@ -6,8 +6,8 @@ local function IsModuleEnabled() return Config.DBGlobal:GetVariable("ExperienceB
 
 
 
-local COLOR_NORMAL = GenericEnum.ColorRGB.NormalText
-local COLOR_WHITE = GenericEnum.ColorRGB.White
+local COLOR_NORMAL = GenericEnum.ColorRGB01.NormalText
+local COLOR_WHITE = GenericEnum.ColorRGB01.White
 
 do -- Add level text to experience bar tooltip
     local function OnLoad()

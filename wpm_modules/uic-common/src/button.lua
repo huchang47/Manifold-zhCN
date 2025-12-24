@@ -214,7 +214,7 @@ end)
 -- Text
 ----------------------------------------------------------------------------------------------------
 
-local VARIANT_RED_TEXT_COLOR              = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.NormalText.r * 255, g = GenericEnum.ColorRGB.NormalText.g * 255, b = GenericEnum.ColorRGB.NormalText.b * 255, a = 1 }
+local VARIANT_RED_TEXT_COLOR              = GenericEnum.UIColorRGB.NormalText
 local VARIANT_RED_TEXT_COLOR_HIGHLIGHTED  = UIKit.Define.Color_RGBA{ r = 255, g = 255, b = 255, a = 1 }
 local VARIANT_GRAY_TEXT_COLOR             = UIKit.Define.Color_RGBA{ r = 216, g = 216, b = 216, a = 1 }
 local VARIANT_GRAY_TEXT_COLOR_HIGHLIGHTED = UIKit.Define.Color_RGBA{ r = 255, g = 255, b = 255, a = 1 }

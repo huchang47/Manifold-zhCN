@@ -238,7 +238,7 @@ end)
 -- Range With Text
 ----------------------------------------------------------------------------------------------------
 
-local TEXT_COLOR      = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.NormalText.r * 255, g = GenericEnum.ColorRGB.NormalText.g * 255, b = GenericEnum.ColorRGB.NormalText.b * 255, a = 1 }
+local TEXT_COLOR      = GenericEnum.UIColorRGB.NormalText
 local RWT_RANGE_WIDTH = UIKit.Define.Percentage{ value = 66 }
 local RWT_TEXT_WIDTH  = UIKit.Define.Percentage{ value = 34, operator = "-", delta = 5 }
 

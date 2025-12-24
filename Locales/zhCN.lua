@@ -1,7 +1,23 @@
+-- ♡ Translation // huchang47
+
+
 if GetLocale() ~= "zhCN" then return end
 
 local env = select(2, ...)
 local L = env.L
+
+
+-- Keybinds
+BINDING_HEADER_MANIFOLD = "Manifold"
+
+BINDING_HEADER_MANIFOLD_HOUSING = "Housing (Manifold)"
+PREFACE_MANIFOLD_HOUSING_EXPERTDECOR_BINDINGS = "Advanced Mode bindings for incrementally manipulating Decor with the mouse wheel."
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_X = "Precise Move (X)"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Y = "Precise Move (Y)"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Z = "Precise Move (Z)"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_ROTATE = "Precise Rotate"
+BINDING_NAME_MANIFOLD_HOUSING_EXPERTDECORPRECISE_SCALE = "Precise Scale"
+
 
 -- Config
 L["Config - General"] = "通用"
@@ -31,6 +47,17 @@ L["Modules - Housing - HouseChest"] = "持久化房屋箱子"
 L["Modules - Housing - HouseChest - Description"] = "保持房屋箱子面板在所有房屋编辑器模式下可见。"
 L["Modules - Housing - PlacedDecorList"] = "已放置装饰列表"
 L["Modules - Housing - PlacedDecorList - Description"] = "启用已放置装饰列表的调整大小功能，并显示每个装饰的放置成本。"
+L["Modules - Housing - DecorTooltip"] = "Highlighted Decor Tooltip"
+L["Modules - Housing - DecorTooltip - Description"] = "Displays a tooltip with name and placement cost when hovering over a decor."
+L["Modules - Housing - DecorTooltip - LeftClick"] = "Left Click to Select"
+L["Modules - Housing - PreciseMovement"] = "(Advanced Mode) Precise Movement"
+L["Modules - Housing - PreciseMovement - Description"] = "Allows precise movement, rotation and scaling of decor by holding the corresponding keybind and scrolling with the mouse wheel."
+L["Modules - Housing - PreciseMovement - MouseWheel"] = "Mouse Wheel"
+L["Modules - Housing - PreciseMovement - PreciseMoveX"] = "Precise Move (X)"
+L["Modules - Housing - PreciseMovement - PreciseMoveY"] = "Precise Move (Y)"
+L["Modules - Housing - PreciseMovement - PreciseMoveZ"] = "Precise Move (Z)"
+L["Modules - Housing - PreciseMovement - PreciseRotate"] = "Precise Rotate"
+L["Modules - Housing - PreciseMovement - PreciseScale"] = "Precise Scale"
 
 L["Modules - Tooltip"] = "提示"
 L["Modules - Tooltip - QuestDetailTooltip"] = "任务详情提示"
@@ -45,3 +72,7 @@ L["Modules - Loot - LootAlertPopup - Equip"] = "装备"
 L["Modules - Loot - LootAlertPopup - Equipping"] = "装备中..."
 L["Modules - Loot - LootAlertPopup - Equipped"] = "已装备"
 L["Modules - Loot - LootAlertPopup - Combat"] = "战斗中"
+
+-- Contributors
+L["Contributors - huchang47"] = "huchang47"
+L["Contributors - huchang47 - Description"] = "Translator — Chinese (Simplified)"

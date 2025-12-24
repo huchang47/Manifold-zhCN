@@ -28,10 +28,10 @@ local TICK_BACKGROUND                     = ATLAS{ inset = 0, scale = 1, left = 
 local LMB_BACKGROUND                      = ATLAS{ inset = 0, scale = 1, left = 192 / 256, right = 256 / 256, top = 64 / 128, bottom = 128 / 128 }
 local CONTENT_SIZE                        = 18
 
-LootAlertFrame_UI.TEXT_COLOR_WHITE        = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.White.r * 255, g = GenericEnum.ColorRGB.White.g * 255, b = GenericEnum.ColorRGB.White.b * 255, a = 1 }
-LootAlertFrame_UI.TEXT_COLOR_GRAY         = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.Gray.r * 255, g = GenericEnum.ColorRGB.Gray.g * 255, b = GenericEnum.ColorRGB.Gray.b * 255, a = 1 }
-LootAlertFrame_UI.TEXT_COLOR_GREEN        = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.Green.r * 255, g = GenericEnum.ColorRGB.Green.g * 255, b = GenericEnum.ColorRGB.Green.b * 255, a = 1 }
-LootAlertFrame_UI.TEXT_COLOR_RED          = UIKit.Define.Color_RGBA{ r = GenericEnum.ColorRGB.Red.r * 255, g = GenericEnum.ColorRGB.Red.g * 255, b = GenericEnum.ColorRGB.Red.b * 255, a = 1 }
+LootAlertFrame_UI.TEXT_COLOR_WHITE        = GenericEnum.UIColorRGB.White
+LootAlertFrame_UI.TEXT_COLOR_GRAY         = GenericEnum.UIColorRGB.Gray
+LootAlertFrame_UI.TEXT_COLOR_GREEN        = GenericEnum.UIColorRGB.Green
+LootAlertFrame_UI.TEXT_COLOR_RED          = GenericEnum.UIColorRGB.Red
 LootAlertFrame_UI.UPGRADE_BACKGROUND      = ATLAS{ inset = 0, scale = 1, left = 64 / 256, right = 128 / 256, top = 64 / 128, bottom = 128 / 128 }
 LootAlertFrame_UI.DOWNGRADE_BACKGROUND    = ATLAS{ inset = 0, scale = 1, left = 128 / 256, right = 192 / 256, top = 64 / 128, bottom = 128 / 128 }
 LootAlertFrame_UI.PrimaryTextColor        = React.New(LootAlertFrame_UI.TEXT_COLOR_WHITE)
@@ -122,19 +122,19 @@ Frame("Manifold_LootAlertPopup", {
     :_Render()
 
 
-Manifold_LootAlertPopup                               = UIKit.GetElementById("Manifold_LootAlertPopup")
-Manifold_LootAlertPopup.Background                    = UIKit.GetElementById("Manifold_LootAlertPopup.Background")
-Manifold_LootAlertPopup.BackgroundTexture             = Manifold_LootAlertPopup.Background:GetBackground()
-Manifold_LootAlertPopup.Content                       = UIKit.GetElementById("Manifold_LootAlertPopup.Content")
-Manifold_LootAlertPopup.Main                          = UIKit.GetElementById("Manifold_LootAlertPopup.Main")
-Manifold_LootAlertPopup.Instruction                   = UIKit.GetElementById("Manifold_LootAlertPopup.Instruction")
-Manifold_LootAlertPopup.Instruction.Hint              = UIKit.GetElementById("Manifold_LootAlertPopup.Instruction.Hint")
-Manifold_LootAlertPopup.Instruction.Text              = UIKit.GetElementById("Manifold_LootAlertPopup.Instruction.Text")
-Manifold_LootAlertPopup.ItemComparison                = UIKit.GetElementById("Manifold_LootAlertPopup.ItemComparison")
-Manifold_LootAlertPopup.ItemComparison.Icon           = UIKit.GetElementById("Manifold_LootAlertPopup.ItemComparison.Icon")
-Manifold_LootAlertPopup.ItemComparison.ItemLevel      = UIKit.GetElementById("Manifold_LootAlertPopup.ItemComparison.ItemLevel")
-Manifold_LootAlertPopup.Spinner                       = UIKit.GetElementById("Manifold_LootAlertPopup.Spinner")
-Manifold_LootAlertPopup.Tick                          = UIKit.GetElementById("Manifold_LootAlertPopup.Tick")
+Manifold_LootAlertPopup                          = UIKit.GetElementById("Manifold_LootAlertPopup")
+Manifold_LootAlertPopup.Background               = UIKit.GetElementById("Manifold_LootAlertPopup.Background")
+Manifold_LootAlertPopup.BackgroundTexture        = Manifold_LootAlertPopup.Background:GetBackground()
+Manifold_LootAlertPopup.Content                  = UIKit.GetElementById("Manifold_LootAlertPopup.Content")
+Manifold_LootAlertPopup.Main                     = UIKit.GetElementById("Manifold_LootAlertPopup.Main")
+Manifold_LootAlertPopup.Instruction              = UIKit.GetElementById("Manifold_LootAlertPopup.Instruction")
+Manifold_LootAlertPopup.Instruction.Hint         = UIKit.GetElementById("Manifold_LootAlertPopup.Instruction.Hint")
+Manifold_LootAlertPopup.Instruction.Text         = UIKit.GetElementById("Manifold_LootAlertPopup.Instruction.Text")
+Manifold_LootAlertPopup.ItemComparison           = UIKit.GetElementById("Manifold_LootAlertPopup.ItemComparison")
+Manifold_LootAlertPopup.ItemComparison.Icon      = UIKit.GetElementById("Manifold_LootAlertPopup.ItemComparison.Icon")
+Manifold_LootAlertPopup.ItemComparison.ItemLevel = UIKit.GetElementById("Manifold_LootAlertPopup.ItemComparison.ItemLevel")
+Manifold_LootAlertPopup.Spinner                  = UIKit.GetElementById("Manifold_LootAlertPopup.Spinner")
+Manifold_LootAlertPopup.Tick                     = UIKit.GetElementById("Manifold_LootAlertPopup.Tick")
 
 
 Manifold_LootAlertPopup.AnimDefinition = UIAnim.New()
@@ -234,7 +234,16 @@ local FRAME_ID = {
     Tick           = 2
 }
 
+function LootAlertPopupMixin:OnLoad()
+    self.owner = nil
+end
+
+function LootAlertPopupMixin:GetOwner()
+    return self.owner
+end
+
 function LootAlertPopupMixin:SetOwner(frame)
+    self.owner = frame
     self:ClearAllPoints()
     self:SetPoint("BOTTOM", frame, "TOP", 0, -8)
 end
@@ -323,6 +332,7 @@ function LootAlertPopupMixin:HideFrame()
 end
 
 Mixin(Manifold_LootAlertPopup, LootAlertPopupMixin)
+Manifold_LootAlertPopup:OnLoad()
 
 
 Manifold_LootAlertPopup:Hide()

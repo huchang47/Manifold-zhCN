@@ -46,16 +46,17 @@ local function OnLoad()
     end
 
     local function OnDecorPlacementEnd()
-        -- Revert to previous mode
-        C_HouseEditor.ActivateHouseEditorMode(Data.lastEditMode)
+        if Data.lastEditMode ~= Enum.HouseEditorMode.BasicDecor then
+            -- Revert to previous mode
+            C_HouseEditor.ActivateHouseEditorMode(Data.lastEditMode)
 
-        -- Revert precision submode for expert decor mode, and revert Placed Decor List visibility
-        if Data.isCurrentPlacementFromOtherMode == Enum.HouseEditorMode.ExpertDecor then
-            C_HousingExpertMode.SetPrecisionSubmode(Data.lastExpertPrecisionSubmode or Enum.HousingPrecisionSubmode.Translate)
-            HouseEditorFrame.ExpertDecorModeFrame.PlacedDecorList:SetShown(Data.isPlacedDecorListOpen)
+            -- Revert precision submode for expert decor mode, and revert Placed Decor List visibility
+            if Data.isCurrentPlacementFromOtherMode == Enum.HouseEditorMode.ExpertDecor then
+                C_HousingExpertMode.SetPrecisionSubmode(Data.lastExpertPrecisionSubmode or Enum.HousingPrecisionSubmode.Translate)
+                HouseEditorFrame.ExpertDecorModeFrame.PlacedDecorList:SetShown(Data.isPlacedDecorListOpen)
+            end
         end
-
-        Data.isCurrentPlacementFromOtherMode = nil
+        ResetData()
     end
 
     local function OnEditorClose()
@@ -113,7 +114,7 @@ local function OnLoad()
     local function UpdatePlacedDecorListState()
         Data.isPlacedDecorListOpen = HouseEditorFrame.ExpertDecorModeFrame.PlacedDecorList:IsShown()
     end
-    
+
     HouseEditorFrame.ExpertDecorModeFrame.PlacedDecorList:HookScript("OnShow", UpdatePlacedDecorListState)
     HouseEditorFrame.ExpertDecorModeFrame.PlacedDecorList:HookScript("OnHide", UpdatePlacedDecorListState)
 

@@ -9,8 +9,8 @@ local Path             = env.WPM:Import("wpm_modules\\path")
 env.NAME               = "Manifold"
 env.ICON               = Path.Root .. "\\Art\\Icon\\Icon.png"
 env.ICON_ALT           = Path.Root .. "\\Art\\Icon\\IconAlt.png"
-env.VERSION_STRING     = "Alpha 3"
-env.VERSION_NUMBER     = 000030
+env.VERSION_STRING     = "Alpha 4"
+env.VERSION_NUMBER     = 000040
 env.DEBUG_MODE         = false
 
 
@@ -43,9 +43,12 @@ do
         DecorMerchant        = true,
         HouseChest           = true,
         PlacedDecorList      = true,
+        DecorTooltip         = false,
+
         QuestDetailTooltip   = true,
+        ExperienceBarTooltip = true,
+
         LootAlertPopup       = true,
-        ExperienceBarTooltip = true
     }
     local DB_GLOBAL_PERSISTENT_DEFAULTS = {}
     local DB_LOCAL_DEFAULTS             = {}

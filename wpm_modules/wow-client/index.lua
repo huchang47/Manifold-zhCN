@@ -18,3 +18,12 @@ WoWClient.IS_CLASSIC_ALL         = WoWClient_Versioning.IS_CLASSIC_ALL
 ----------------------------------------------------------------------------------------------------
 
 WoWClient.BlockKeyEvent          = WoWClient_Keybind.BlockKeyEvent
+WoWClient.IsKeyBinding           = WoWClient_Keybind.IsKeyBinding
+WoWClient.IsKeyBindingSet        = WoWClient_Keybind.IsKeyBindingSet
+
+
+-- Events
+----------------------------------------------------------------------------------------------------
+
+WoWClient.IsPlayerTurning = WoWClient_Events.IsPlayerTurning
+WoWClient.IsPlayerLooking = WoWClient_Events.IsPlayerLooking

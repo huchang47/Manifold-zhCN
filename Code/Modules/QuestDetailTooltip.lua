@@ -6,10 +6,10 @@ local function IsModuleEnabled() return Config.DBGlobal:GetVariable("QuestDetail
 
 
 
-local COLOR_NORMAL          = GenericEnum.ColorRGB.NormalText
-local COLOR_WHITE           = GenericEnum.ColorRGB.White
-local COLOR_GRAY            = GenericEnum.ColorRGB.Gray
-local COLOR_RED             = GenericEnum.ColorRGB.Red
+local COLOR_NORMAL          = GenericEnum.ColorRGB01.NormalText
+local COLOR_WHITE           = GenericEnum.ColorRGB01.White
+local COLOR_GRAY            = GenericEnum.ColorRGB01.Gray
+local COLOR_RED             = GenericEnum.ColorRGB01.Red
 
 local EMPTY_TABLE           = {}
 local BLOCK_TYPE_HEADER     = 0

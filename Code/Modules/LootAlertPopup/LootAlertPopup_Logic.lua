@@ -343,6 +343,13 @@ local function LootAlertFrame_OnClick(frame, button)
     end
 end
 
+local function LootAlertFrame_OnHide(frame)
+    if Manifold_LootAlertPopup:GetOwner() == frame then
+        ResetState()
+        UpdateLootAlertPopupState()
+    end
+end
+
 hooksecurefunc(LootAlertSystem, "ShowAlert", function(self, ...)
     if not IsModuleEnabled() then return end
 
@@ -354,6 +361,7 @@ hooksecurefunc(LootAlertSystem, "ShowAlert", function(self, ...)
             alertFrame:HookScript("OnEnter", LootAlertFrame_OnEnter)
             alertFrame:HookScript("OnLeave", LootAlertFrame_OnLeave)
             alertFrame:HookScript("OnMouseUp", LootAlertFrame_OnClick)
+            alertFrame:HookScript("OnHide", LootAlertFrame_OnHide)
         end
     end
 end)
