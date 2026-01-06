@@ -217,6 +217,28 @@ Setting_Schema.SCHEMA = {
         }
     },
     {
+        widgetName = L["Modules - Events"],
+        widgetType = Setting_Enum.WidgetType.Tab,
+        children   = {
+            {
+                widgetName       = L["Modules - Events"],
+                widgetType       = Setting_Enum.WidgetType.Title,
+                widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Modules - Events"], subtext = L["Config - Modules - WIP"] }
+            },
+            {
+                widgetType = Setting_Enum.WidgetType.Container,
+                children   = {
+                    {
+                        widgetName        = L["Modules - Events - MidnightPrepatch"],
+                        widgetDescription = Setting_Define.Descriptor{ imageType = Setting_Enum.ImageType.Large, imagePath = GetModulePreviewImage("MidnightPrepatch"), description = L["Modules - Events - MidnightPrepatch - Description"] },
+                        widgetType        = Setting_Enum.WidgetType.CheckButton,
+                        key               = "MidnightPrepatch"
+                    }
+                }
+            }
+        }
+    },
+    {
         widgetName         = L["Config - About"],
         widgetType         = Setting_Enum.WidgetType.Tab,
         widgetTab_isFooter = true,

@@ -7,7 +7,6 @@
 local env = select(2, ...)
 local L = env.L
 
-
 -- Keybinds
 BINDING_HEADER_MANIFOLD = "Manifold"
 
@@ -39,6 +38,10 @@ L["Config - About"] = "About"
 L["Config - About - Contributors"] = "Contributors"
 L["Config - About - Developer"] = "Developer"
 L["Config - About - Developer - AdaptiveX"] = "AdaptiveX"
+
+-- Dashboard
+L["Dashboard - Activated"] = "Activated"
+L["Dashboard - Deactivated"] = "Deactivated"
 
 -- Modules
 L["Modules - Housing"] = "Housing"
@@ -73,6 +76,30 @@ L["Modules - Loot - LootAlertPopup - Equip"] = "Equip"
 L["Modules - Loot - LootAlertPopup - Equipping"] = "Equipping..."
 L["Modules - Loot - LootAlertPopup - Equipped"] = "Equipped"
 L["Modules - Loot - LootAlertPopup - Combat"] = "In Combat"
+
+L["Modules - Events"] = "Events"
+L["Modules - Events - MidnightPrepatch"] = "Midnight Pre-Expansion Event"
+L["Modules - Events - MidnightPrepatch - Description"] = "- Rare Tracker: Displays a sequential timeline of rares with estimated spawn times.\n\n- Currency Tracker: Shows your current Twilight's Blade Insignia count.\n\n- Weekly Quest Tracker: Tracks completion status of weekly event quests."
+L["Modules - Events - MidnightPrepatch - RareTracker - Unavailable"] = "Unavailable"
+L["Modules - Events - MidnightPrepatch - RareTracker - Timer"] = "Next in %s"
+L["Modules - Events - MidnightPrepatch - RareTracker - Await"] = "Soon..."
+L["Modules - Events - MidnightPrepatch - RareTracker - Tooltip - Title"] = "Rare Timeline"
+L["Modules - Events - MidnightPrepatch - RareTracker - Tooltip - Unavailable"] = "No data available"
+L["Modules - Events - MidnightPrepatch - RareTracker - Tooltip - Active"] = "Active"
+L["Modules - Events - MidnightPrepatch - RareTracker - Tooltip - Inactive"] = "Dead"
+L["Modules - Events - MidnightPrepatch - RareTracker - Tooltip - Await"] = "Soon..."
+L["Modules - Events - MidnightPrepatch - RareTracker - Tooltip - Hint"] = "<Click to Track Active Rare>"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Reset"] = " Resets in %s"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Complete"] = " Complete"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Available"] = " Available"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - CompleteIntroQuestline"] = "Complete Intro Questline to Unlock"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Title"] = "Weekly Quests"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Reset"] = "Resets in %s"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Complete"] = "Complete"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - InProgress"] = "In Progress"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = "Available"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<Click to Track Quest Giver>"
+L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<Click to Open World Map>"
 
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"

@@ -101,25 +101,6 @@ local function AddQualityLine(text, quality)
     GameTooltip:AddLine(text, r, g, b)
 end
 
-local function GetNumPartyMembersOnQuest(questID)
-    if not questID then return 0 end
-    if type(QuestUtils_GetNumPartyMembersOnQuest) == "function" then
-        return QuestUtils_GetNumPartyMembersOnQuest(questID) or 0
-    end
-    if not (C_QuestLog and C_QuestLog.IsUnitOnQuest) then
-        return 0
-    end
-
-    local count = 0
-    for i = 1, GetNumSubgroupMembers() do
-        if C_QuestLog.IsUnitOnQuest("party" .. i, questID) then
-            count = count + 1
-        end
-    end
-
-    return count
-end
-
 
 
 local RewardUtil = {}

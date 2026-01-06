@@ -9,21 +9,21 @@ local Path             = env.WPM:Import("wpm_modules\\path")
 env.NAME               = "Manifold"
 env.ICON               = Path.Root .. "\\Art\\Icon\\Icon.png"
 env.ICON_ALT           = Path.Root .. "\\Art\\Icon\\IconAlt.png"
-env.VERSION_STRING     = "Alpha 4"
-env.VERSION_NUMBER     = 000040
+env.VERSION_STRING     = "Alpha 5"
+env.VERSION_NUMBER     = 000050
 env.DEBUG_MODE         = false
 
 
-local L = {}; env.L = L -- Locales
+local L = {}; env.L = L
 
 
-local Enum = {}; env.Enum = Enum -- Add-on specific enum
+local Enum = {}; env.Enum = Enum
 do
 
 end
 
 
-local Config = {}; env.Config = Config -- Configuration / Database
+local Config = {}; env.Config = Config
 do
     Config.DBGlobal                     = nil
     Config.DBGlobalPersistent           = nil
@@ -35,24 +35,30 @@ do
     local NAME_LOCAL                    = "ManifoldDB_Local"
     local NAME_LOCAL_PERSISTENT         = "ManifoldDB_Local_Persistent"
 
+    ---@format disable
     local DB_GLOBAL_DEFAULTS            = {
-        -- Cache
-        lastLoadedVersion    = nil,
+        lastLoadedVersion = nil,
 
-        -- Modules
-        DecorMerchant        = true,
-        HouseChest           = true,
-        PlacedDecorList      = true,
-        DecorTooltip         = false,
+        --Housing
+        DecorMerchant = true,
+        HouseChest = true,
+        PlacedDecorList = true,
+        DecorTooltip = false,
 
-        QuestDetailTooltip   = true,
+        --Tooltip
+        QuestDetailTooltip = true,
         ExperienceBarTooltip = true,
 
-        LootAlertPopup       = true,
+        --Loot
+        LootAlertPopup = true,
+
+        --Events
+        MidnightPrepatch = true
     }
     local DB_GLOBAL_PERSISTENT_DEFAULTS = {}
     local DB_LOCAL_DEFAULTS             = {}
     local DB_LOCAL_PERSISTENT_DEFAULTS  = {}
+    ---@format enable
 
     local DB_GLOBAL_MIGRATION           = {}
 
@@ -81,7 +87,7 @@ end
 
 
 local SoundHandler = {}
-do -- Sound Handler
+do
     local function UpdateMainSoundLayer()
         local Setting_AudioGlobal = Config.DBGlobal:GetVariable("AudioGlobal")
 
@@ -101,7 +107,7 @@ end
 
 
 local FontHandler = {}
-do -- Font Handler
+do
     local function UpdateFonts()
         UIFont.CustomFont:RefreshFontList()
 

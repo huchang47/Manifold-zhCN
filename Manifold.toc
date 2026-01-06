@@ -1,5 +1,5 @@
 ## Interface: 110207, 120000, 120001
-## Version: Alpha 4
+## Version: Alpha 5
 ## Title: Manifold
 ## Title-zhCN: Manifold-万象
 ## Notes: A collection of quality-of-life enhancements.

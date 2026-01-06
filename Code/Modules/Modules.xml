@@ -2,6 +2,7 @@
 ..\FrameXML\UI.xsd">
     <Include file="Housing\Housing.xml"/>
     <Include file="LootAlertPopup\LootAlertPopup.xml"/>
+    <Include file="MidnightPrepatch\MidnightPrepatch.xml"/>
     <Script file="ExperienceBarTooltip.lua"/>
     <Script file="QuestDetailTooltip.lua"/>
 </Ui>

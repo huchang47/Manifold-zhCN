@@ -39,8 +39,8 @@ local function IsInteractingWithDecorMerchant()
     local targetGUID = UnitGUID("target")
     if not targetGUID then return false end
 
-    local _, _, _, _, _, npcID, _ = Utils_Blizzard.DecodeGUID(targetGUID)
-    return DECOR_VENDOR_NPC_ID[npcID]
+    local _, _, _, _, _, unitID, _ = Utils_Blizzard.ParseUnitGUID(targetGUID)
+    return DECOR_VENDOR_NPC_ID[unitID]
 end
 
 

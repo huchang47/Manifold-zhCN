@@ -222,12 +222,12 @@ local function UpdateLootAlertPopupState()
 
     -- Visibility
     if not State.valid then
-        if Manifold_LootAlertPopup.isShown then
-            Manifold_LootAlertPopup:HideFrame()
+        if frame.isShown then
+            frame:HideFrame()
         end
         return
-    elseif not Manifold_LootAlertPopup.isShown then
-        Manifold_LootAlertPopup:ShowFrame()
+    elseif not frame.isShown then
+        frame:ShowFrame()
         wasShown = true
     end
 
@@ -236,18 +236,18 @@ local function UpdateLootAlertPopupState()
     if not State.currentFrame then return end
 
     if State.isEquipped then -- Equipped
-        Manifold_LootAlertPopup:SetTick()
+        frame:SetTick()
         if not wasShown then
-            Manifold_LootAlertPopup.AnimDefinition:Play(Manifold_LootAlertPopup, "TRANSITION")
+            frame.AnimDefinition:Play(frame, "TRANSITION")
         end
     elseif State.isWaitingForEquip then -- Equipping...
-        Manifold_LootAlertPopup:SetSpinner()
+        frame:SetSpinner()
         if not wasShown then
-            Manifold_LootAlertPopup.AnimDefinition:Play(Manifold_LootAlertPopup, "TRANSITION")
+            frame.AnimDefinition:Play(frame, "TRANSITION")
         end
     else -- Click to Equip
         local itemLevelDelta = Util.CalculateItemLevelDelta(State.currentFrame.hyperlink)
-        Manifold_LootAlertPopup:SetItemComparison(itemLevelDelta)
+        frame:SetItemComparison(itemLevelDelta)
     end
 end
 
@@ -301,7 +301,7 @@ local function LootAlertFrame_OnEnter(self)
 
     SetTooltip()
 
-    Manifold_LootAlertPopup:SetOwner(self)
+    frame:SetOwner(self)
     UpdateLootAlertPopupState()
 end
 
@@ -344,7 +344,7 @@ local function LootAlertFrame_OnClick(frame, button)
 end
 
 local function LootAlertFrame_OnHide(frame)
-    if Manifold_LootAlertPopup:GetOwner() == frame then
+    if frame:GetOwner() == frame then
         ResetState()
         UpdateLootAlertPopupState()
     end
