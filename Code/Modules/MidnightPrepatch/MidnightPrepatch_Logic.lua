@@ -618,6 +618,11 @@ f:SetScript("OnEvent", function(self, event, ...)
         OnEventSchedulerUpdate()
     end
 
+    -- Assume 1 frame delay is enough to ensure everything is loaded
+    if event == "PLAYER_ENTERING_WORLD" then
+        C_Timer.After(0, MidnightPrepatch_Logic.UpdateUI)
+    end
+
     MidnightPrepatch_Logic.UpdateUI()
 end)
 

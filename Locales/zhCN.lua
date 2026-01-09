@@ -76,6 +76,7 @@ L["Modules - Loot - LootAlertPopup - Equip"] = "装备"
 L["Modules - Loot - LootAlertPopup - Equipping"] = "装备中..."
 L["Modules - Loot - LootAlertPopup - Equipped"] = "已装备"
 L["Modules - Loot - LootAlertPopup - Combat"] = "战斗中"
+L["Modules - Loot - LootAlertPopup - Vendor"] = "At Vendor"
 
 L["Modules - Events"] = "Events"
 L["Modules - Events - MidnightPrepatch"] = "Midnight Pre-Expansion Event"

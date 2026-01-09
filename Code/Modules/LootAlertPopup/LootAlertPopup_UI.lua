@@ -276,8 +276,11 @@ do
 
     function LootAlertPopupMixin:SetItemComparison(itemLevel)
         local inCombat = InCombatLockdown()
-        self:SetInstruction(not inCombat and LMB_BACKGROUND, inCombat and L["Modules - Loot - LootAlertPopup - Combat"] or L["Modules - Loot - LootAlertPopup - Equip"])
-        LootAlertFrame_UI.PrimaryTextColor:Set(inCombat and LootAlertFrame_UI.TEXT_COLOR_RED or LootAlertFrame_UI.TEXT_COLOR_WHITE)
+        local atVendor = MerchantFrame and MerchantFrame:IsShown()
+        local isBlocked = inCombat or atVendor
+        local blockText = inCombat and L["Modules - Loot - LootAlertPopup - Combat"] or (atVendor and L["Modules - Loot - LootAlertPopup - Vendor"] or L["Modules - Loot - LootAlertPopup - Equip"])
+        self:SetInstruction(not isBlocked and LMB_BACKGROUND, blockText)
+        LootAlertFrame_UI.PrimaryTextColor:Set(isBlocked and LootAlertFrame_UI.TEXT_COLOR_RED or LootAlertFrame_UI.TEXT_COLOR_WHITE)
 
         self:SetFrame(FRAME_ID.ItemComparison)
         local isUpgrade = itemLevel > 0

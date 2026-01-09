@@ -222,12 +222,12 @@ local function UpdateLootAlertPopupState()
 
     -- Visibility
     if not State.valid then
-        if frame.isShown then
-            frame:HideFrame()
+        if ManifoldLootAlertPopup.isShown then
+            ManifoldLootAlertPopup:HideFrame()
         end
         return
-    elseif not frame.isShown then
-        frame:ShowFrame()
+    elseif not ManifoldLootAlertPopup.isShown then
+        ManifoldLootAlertPopup:ShowFrame()
         wasShown = true
     end
 
@@ -236,18 +236,18 @@ local function UpdateLootAlertPopupState()
     if not State.currentFrame then return end
 
     if State.isEquipped then -- Equipped
-        frame:SetTick()
+        ManifoldLootAlertPopup:SetTick()
         if not wasShown then
-            frame.AnimDefinition:Play(frame, "TRANSITION")
+            ManifoldLootAlertPopup.AnimDefinition:Play(ManifoldLootAlertPopup, "TRANSITION")
         end
     elseif State.isWaitingForEquip then -- Equipping...
-        frame:SetSpinner()
+        ManifoldLootAlertPopup:SetSpinner()
         if not wasShown then
-            frame.AnimDefinition:Play(frame, "TRANSITION")
+            ManifoldLootAlertPopup.AnimDefinition:Play(ManifoldLootAlertPopup, "TRANSITION")
         end
     else -- Click to Equip
         local itemLevelDelta = Util.CalculateItemLevelDelta(State.currentFrame.hyperlink)
-        frame:SetItemComparison(itemLevelDelta)
+        ManifoldLootAlertPopup:SetItemComparison(itemLevelDelta)
     end
 end
 
@@ -273,6 +273,8 @@ end
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
 f:RegisterEvent("PLAYER_REGEN_ENABLED")
+f:RegisterEvent("MERCHANT_SHOW")
+f:RegisterEvent("MERCHANT_CLOSED")
 f:SetScript("OnEvent", function(self, event)
     if event == "PLAYER_EQUIPMENT_CHANGED" then
         if State.currentFrame and State.isWaitingForEquip then
@@ -284,7 +286,13 @@ f:SetScript("OnEvent", function(self, event)
         end
     end
 
-    if event == "PLAYER_REGEN_ENABLED" then
+    if event == "PLAYER_REGEN_ENABLED" or event == "MERCHANT_CLOSED" then
+        if State.valid and not State.isEquipped and not State.isWaitingForEquip then
+            UpdateLootAlertPopupState()
+        end
+    end
+
+    if event == "MERCHANT_SHOW" then
         if State.valid and not State.isEquipped and not State.isWaitingForEquip then
             UpdateLootAlertPopupState()
         end
@@ -301,7 +309,7 @@ local function LootAlertFrame_OnEnter(self)
 
     SetTooltip()
 
-    frame:SetOwner(self)
+    ManifoldLootAlertPopup:SetOwner(self)
     UpdateLootAlertPopupState()
 end
 
@@ -323,6 +331,7 @@ end
 local function LootAlertFrame_OnClick(frame, button)
     if not IsModuleEnabled() then return end
     if InCombatLockdown() then return end
+    if MerchantFrame and MerchantFrame:IsShown() then return end
 
     if button == "LeftButton" then
         local targetLink = frame.hyperlink
@@ -344,7 +353,7 @@ local function LootAlertFrame_OnClick(frame, button)
 end
 
 local function LootAlertFrame_OnHide(frame)
-    if frame:GetOwner() == frame then
+    if ManifoldLootAlertPopup:GetOwner() == frame then
         ResetState()
         UpdateLootAlertPopupState()
     end

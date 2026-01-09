@@ -9,8 +9,8 @@ local Path             = env.WPM:Import("wpm_modules\\path")
 env.NAME               = "Manifold"
 env.ICON               = Path.Root .. "\\Art\\Icon\\Icon.png"
 env.ICON_ALT           = Path.Root .. "\\Art\\Icon\\IconAlt.png"
-env.VERSION_STRING     = "Alpha 5"
-env.VERSION_NUMBER     = 000050
+env.VERSION_STRING     = "Alpha 6"
+env.VERSION_NUMBER     = 000060
 env.DEBUG_MODE         = false
 
 
